@@ -1,0 +1,24 @@
+intro
+- use two-space indentation
+- h and i in iex shell for help, inspect
+- naming convention: .ex to compile later, .exs for elixir script
+
+
+part 1
+
+pattern matching
+- matching: = means equal, not assignment
+-- exception: value on the left can be updated
+- matching works on structured data
+- underscore (_) can be used as a match wildcard/throwaway
+- caret (^) can be used to 'pin' values when doing a match
+-- left side will not be updated in the match
+- variables bind only once per match
+
+immutability
+- everything is immutable, all data is transformed!
+
+basics
+- value types
+-- an atom is a constant whose name is the same as its value
+- Regex.run and Regex.scan: first match, all matches
