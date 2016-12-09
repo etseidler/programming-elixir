@@ -22,3 +22,14 @@ basics
 - value types
 -- an atom is a constant whose name is the same as its value
 - Regex.run and Regex.scan: first match, all matches
+- lists
+-- concat: ++
+-- set difference: --
+-- membership: in
+- keyword lists: keys can be repeated. use for options, parameters
+- maps: keys cannot be repeated. use for hashes/associative arrays/dicts
+-- can use dot notation for accessing keys if keys are atoms
+- most times, everything but false or nil is consider true
+- equality: === and == work similarly to JS
+- &&,|| vs and,or: the latter expect actual bools as first args
+- with allows creation of temporary locally scoped variables
