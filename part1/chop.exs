@@ -1,26 +1,25 @@
 defmodule Chop do
   
-  def guess(target, range) do
-    first..last = range
-    guessWithMidpoint(target, range, div(last-first, 2) + 1)
+  def guess(target, range = first..last) do
+    _guess(target, range, div(last-first, 2) + 1)
   end
 
-  def guessWithMidpoint(target, range, currentGuess) when currentGuess > target do
-    first.._ = range
-    IO.puts "Is it " <> to_string currentGuess
-    nextGuess = div(currentGuess - first, 2) + first
-    guessWithMidpoint(target, first..currentGuess-1, nextGuess)
+  defp _guess(target, _range = first.._last, currentGuess) 
+    when currentGuess > target do
+      IO.puts "Is it #{currentGuess}"
+      nextGuess = div(currentGuess - first, 2) + first
+      _guess(target, first..currentGuess-1, nextGuess)
   end
 
-  def guessWithMidpoint(target, range, currentGuess) when currentGuess < target do
-    _..last = range
-    IO.puts "Is it " <> to_string currentGuess
-    nextGuess = div(last - currentGuess, 2) + currentGuess
-    guessWithMidpoint(target, currentGuess..last, nextGuess+1)
+  defp _guess(target, _range = _first..last, currentGuess)
+    when currentGuess < target do
+      IO.puts "Is it #{currentGuess}"
+      nextGuess = div(last - currentGuess, 2) + currentGuess
+      _guess(target, currentGuess..last, nextGuess+1)
   end
 
-  def guessWithMidpoint(target, _, currentGuess) when currentGuess === target do
-    IO.puts "Is it " <> to_string currentGuess
+  defp _guess(target, _, currentGuess) do
+    IO.puts "Is it #{currentGuess}"
     target
   end
 
